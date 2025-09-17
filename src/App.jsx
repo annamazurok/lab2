@@ -1,35 +1,62 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Profile from "./components/Profile";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const users = [
+  {
+    name: "Leanne Graham",
+    role: "Software Engineer",
+    avatarUrl: "https://i.pravatar.cc/150?img=32",
+  },
+  {
+    name: "Ervin Howell",
+    role: "Project Manager",
+    avatarUrl: "https://i.pravatar.cc/150?img=12",
+  },
+  {
+    name: "Clementine Bauch",
+    role: "UI/UX Designer",
+    avatarUrl: "https://i.pravatar.cc/150?img=42",
+  },
+  {
+    name: "Patricia Lebsack",
+    role: "QA Engineer",
+    avatarUrl: "https://i.pravatar.cc/150?img=10",
+  },
+  {
+    name: "Chelsey Dietrich",
+    role: "Business Analyst",
+    avatarUrl: "https://i.pravatar.cc/150?img=45",
+  },
+  {
+    name: "Dennis Schulist",
+    role: "DevOps Engineer",
+    avatarUrl: "https://i.pravatar.cc/150?img=52",
+  },
+  {
+    name: "Kurtis Weissnat",
+    role: "Product Owner",
+    avatarUrl: "https://i.pravatar.cc/150?img=13",
+  },
+];
 
-  return (
+
+  const listItems = users.map((user, index) =>(
+    <Profile
+    key={index}
+    name={user.name}
+    role={user.role}
+    avatarUrl={user.avatarUrl}
+    />
+  ));
+
+  return(
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <article>
+      <h1>User Profiles</h1>
+      <ul>{listItems}</ul>
+    </article>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
